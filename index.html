@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ekrub Studios LLC</title><meta name="description" content="Ekrub Studios LLC: Maryland-made art, apparel and storybooks.">
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<header><h1>Ekrub Studios LLC</h1><p>Maryland-made art, apparel and stories, from one family company.</p></header>
+<main><h2>Our divisions</h2><section id="divisions" class="grid"></section></main>
+<footer>&copy; 2026 Ekrub Studios LLC &middot; Maryland</footer>
+<script src="divisions.js"></script>
+<script>
+const g=document.getElementById('divisions');
+for(const d of window.DIVISIONS){
+  const c=document.createElement('article');c.className='card';
+  c.innerHTML=`<p class="tag">${d.tag}</p><h3>${d.name}</h3><p>${d.blurb}</p>`+
+   (d.status?`<span class="badge">${d.status}</span>`:'')+
+   `<div class="links">${d.links.map(l=>`<a class="btn" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join('')}</div>`;
+  g.appendChild(c);
+}
+</script></body></html>
